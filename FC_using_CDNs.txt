@@ -1,45 +1,64 @@
 <!DOCTYPE html>
 <html>
-<head>
-<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-</head>
-<body>
-<div id="root"></div>
-<script type="text/babel">
+  <head>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<style>
+
+h1{
+color:red;
+background-color:green;
+}
+</style>
+
+  </head>
+  <body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+
       function Greet() {
 
-    let date=new Date();
-    let hours=date.getHours();
-    let msg;
+	let date=new Date();
+	let dt=date.getDate();
+	let month=date.getMonth();
+	let hours=date.getHours();
+	let minutes=date.getMinutes();
+	let msg;
 
-    if(hours>5 && hours<12){
-    msg='Good Morning! Have a nice Day Ahead';
-    }
+	if(hours>5 && hours<12){
+	msg='Good Morning! Have a nice Day Ahead';
+	}
 
-    else if(hours>=12 && hours<16){
-    msg="Good Afternoon! It's Too Hot here,Don't Go Outside";
-    }
+	else if(hours>=12 && hours<16){
+	msg="Good Afternoon! It's Too Hot here,Don't Go Outside";
+	}
 
-    else if(hours>=16 && hours<21){
-    msg='Good Evening! Have Some Tea and Snacks';
-    }
+	else if(hours>=16 && hours<21){
+	msg='Good Evening! Have Some Tea and Snacks';
+	}
 
-    else if(hours=>21){
-    msg='Good Night! Have a Sweet Dreams';
-    }
-      return <h1 style="color:green"> Time is {hours} hours now and {msg} </h1>;
+	else if(hours=>21){
+	msg='Good Night! Have a Sweet Dreams';
+	}
+
+	  return <p> <h1>Today's Date is {dt} and month is {month}</h1><br/>
+		    <h1>Time is {hours} hours and {minutes} minutes now</h1><br/>
+		    <marquee><h1> {msg} </h1> </marquee></p>;
       }
 
-
-      function Welcome() {
+	  function Welcome() {
         return <Greet/>;
       }
+
       const container = document.getElementById('root');
       const root = ReactDOM.createRoot(container);
       root.render(<Welcome/>)
-</script>
-</body>
-</html>
+	  
+    </script>
 
+  </body>
+</html>
